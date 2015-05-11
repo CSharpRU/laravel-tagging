@@ -9,8 +9,6 @@ use Illuminate\Database\Eloquent\Model as Eloquent;
 class Tag extends Eloquent {
 
 	protected $table = 'tagging_tags';
-	public $timestamps = false;
-	protected $softDelete = false;
 	public $fillable = ['name'];
 	
 	public function __construct(array $attributes = array()) {
