@@ -144,12 +144,14 @@ class TaggingUtil {
 		return $options['lowercase'] ? mb_strtolower($str, 'UTF-8') : $str;
 	}
 
-	/**
-	 * Private! Please do not call this function directly, just let the Tag library use it.
-	 * Increment count of tag by one. This function will create tag record if it does not exist.
-	 *
-	 * @param string $tagString
-	 */
+    /**
+     * Private! Please do not call this function directly, just let the Tag library use it.
+     * Increment count of tag by one. This function will create tag record if it does not exist.
+     *
+     * @param string $tagString
+     *
+     * @return Tag|void
+     */
 	public static function incrementCount($tagString, $tagSlug, $count) {
 		if($count <= 0) { return; }
 		
@@ -165,6 +167,8 @@ class TaggingUtil {
 		
 		$tag->count = $tag->count + $count;
 		$tag->save();
+
+        return $tag;
 	}
 	
 	/**

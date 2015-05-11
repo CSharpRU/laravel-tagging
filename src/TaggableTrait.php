@@ -181,15 +181,16 @@ trait TaggableTrait {
 		
 		$displayer = config('tagging.displayer');
 		$displayer = empty($displayer) ? '\Illuminate\Support\Str::title' : $displayer;
+
+        $tag = TaggingUtil::incrementCount($tagName, $tagSlug, 1);
 		
 		$tagged = new Tagged(array(
 			'tag_name'=>call_user_func($displayer, $tagName),
 			'tag_slug'=>$tagSlug,
 		));
-		
-		$this->tagged()->save($tagged);
 
-		TaggingUtil::incrementCount($tagName, $tagSlug, 1);
+        $tagged->tag()->associate($tag);
+		$this->tagged()->save($tagged);
 	}
 	
 	/**
