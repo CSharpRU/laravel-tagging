@@ -55,5 +55,9 @@ class Tag extends Eloquent {
 		
 		$this->attributes['name'] = call_user_func($displayer, $value);
 	}
+
+    public function tagged() {
+        return $this->hasMany('\Conner\Tagging\Tagged');
+    }
 	
 }

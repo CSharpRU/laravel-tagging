@@ -17,4 +17,8 @@ class Tagged extends Eloquent {
 		return $this->morphTo();
 	}
 
+    public function tag() {
+        return $this->belongsTo('\Conner\Tagging\Tag');
+    }
+
 }
