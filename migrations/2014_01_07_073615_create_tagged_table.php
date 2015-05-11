@@ -13,6 +13,9 @@ class CreateTaggedTable extends Migration {
 			//$table->morphs('taggable');
 			$table->string('tag_name', 255);
 			$table->string('tag_slug', 255)->index();
+
+            $table->timestamps();
+            $table->softDeletes();
 		});
 	}
 

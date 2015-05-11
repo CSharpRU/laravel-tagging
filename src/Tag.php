@@ -2,11 +2,14 @@
 
 use Conner\Tagging\TaggingUtil;
 use Illuminate\Database\Eloquent\Model as Eloquent;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * Copyright (C) 2014 Robert Conner
  */
 class Tag extends Eloquent {
+
+    use SoftDeletes;
 
 	protected $table = 'tagging_tags';
 	public $fillable = ['name'];

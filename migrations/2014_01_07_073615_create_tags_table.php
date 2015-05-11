@@ -13,6 +13,9 @@ class CreateTagsTable extends Migration {
 			$table->string('name', 255);
 			$table->boolean('suggest')->default(false);
 			$table->integer('count')->unsigned()->default(0); // count of how many times this tag was used
+
+            $table->timestamps();
+            $table->softDeletes();
 		});
 	}
 
